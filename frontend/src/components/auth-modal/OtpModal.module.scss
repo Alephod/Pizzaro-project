@@ -1,0 +1,55 @@
+.title {
+    margin-bottom: 10px;
+}
+
+.description {
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.changeLink {
+    color: var(--primary);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.otpInputs {
+    display: grid;
+    grid-template-columns: repeat(6, 50px);
+    gap: 6px;
+}
+
+.otpInput input {
+    font-weight: 600;
+    text-align: center;
+    font-size: 26px;
+    flex-grow: 1;
+}
+
+.errorMessage {
+    font-size: 14px;
+    text-align: center;
+    color: var(--danger);
+}
+
+.successMessage {
+    font-size: 14px;
+    text-align: center;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.resendButton {
+    flex: 1;
+}

@@ -1,0 +1,142 @@
+@use "sass:color";
+.card {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+}
+
+.info {
+  flex: 1;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.address {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.preview {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.statusGroup {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--gray);
+  position: relative;
+  padding-left: 0;
+
+  &::before {
+    content: ""; 
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+}
+
+.statusAccepted {
+  color: var(--green);
+}
+
+.statusPreparing {
+  color: var(--brown);
+}
+
+.statusDelivering {
+  color: var(--primary);
+}
+
+.statusDelivered {
+  color: var(--gray);
+}
+
+.date {
+  color: #666;
+  font-size: 12px;
+}
+
+.priceGroup {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.editor {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.buttonAccepted {
+  background-color: color.adjust(#57c45b, $lightness: 30%) !important;
+  color: var(--green) !important;
+}
+
+.buttonPreparing {
+  background-color: color.adjust(#AA6A4E, $lightness: 30%) !important;
+  color: var(--brown) !important;
+}
+
+.buttonDelivering {
+  background-color: color.adjust(#fe782b, $lightness: 30%) !important;
+  color: var(--primary) !important;
+}
+
+.buttonDelivered {
+  background-color: color.adjust(#969696, $lightness: 30%) !important;
+  color: #969696 !important;
+}
