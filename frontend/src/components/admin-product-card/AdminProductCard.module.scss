@@ -1,0 +1,82 @@
+.card {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+    position: relative;
+
+    .image {
+        width: 130px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+
+    .content {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .name {
+        margin-bottom: 5px;
+    }
+
+    .description {
+        margin: 0 0 5px;
+        font-size: 14px;
+        line-height: 1.2;
+        color: #555;
+    }
+
+    .price {
+        margin: 0;
+        font-weight: 600;
+        margin-top: auto;
+        font-size: 20px;
+    }
+
+    .buttons {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        display: flex;
+        gap: 10px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        color: var(--colorText);
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            svg {
+                transition: stroke 0.15s ease;
+            }
+
+            &:hover {
+                svg {
+                    stroke: var(--primary);
+                }
+            }
+        }
+    }
+
+    &:hover {
+        .buttons {
+            opacity: 1;
+        }
+    }
+}
+
+.deleteBtn:hover {
+    svg {
+        stroke: var(--danger) !important;
+    }
+}

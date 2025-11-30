@@ -1,0 +1,30 @@
+.title {
+    margin-bottom: 10px;
+}
+
+.description {
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 10px;
+}
+.submitButton {
+  flex: 1;
+}
+
+.errorMessage {
+    font-size: 14px;
+    text-align: center;
+    color: var(--danger);
+}

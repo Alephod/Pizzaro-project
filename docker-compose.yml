@@ -1,0 +1,30 @@
+services:
+    frontend:
+        container_name: pizzaro-proj-frontend
+        build:
+            context: ./frontend
+            dockerfile: .Dockerfile.dev
+        ports:
+            - '3000:3000'
+        volumes:
+            - ./frontend:/usr/app
+            - ./frontend/public:/usr/app/public
+            - ./ui-library/dist:/usr/app/node_modules/@my-app/ui-library:ro
+        env_file:
+            - .env.local
+        depends_on:
+            - db
+
+    db:
+        image: postgres:16
+        container_name: pizzaro-proj-db
+        restart: unless-stopped
+        volumes:
+            - db_data:/var/lib/postgresql/data
+        env_file:
+            - .env.local
+        ports:
+            - '5432:5432'
+
+volumes:
+    db_data:

@@ -1,0 +1,162 @@
+.modalBackdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    overflow-y: auto;
+
+    animation: backdropFade 0.125s forwards;
+}
+
+@keyframes backdropFade {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+}
+
+.backdropClosing {
+    animation: backdropFadeOut 0.125s forwards;
+}
+
+@keyframes backdropFadeOut {
+    from {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+.modalContent {
+    position: relative;
+    padding: 25px;
+    background: #fff;
+    border-radius: var(--border-radius);
+    width: auto;
+    max-height: 100svh;
+    overflow-x: hidden;
+    opacity: 0;
+    transform: scale(0.9);
+
+    animation: modalIn 0.125s forwards;
+}
+
+@keyframes modalIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.closing {
+    animation: modalOut 0.125s forwards;
+}
+
+@keyframes modalOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+.modalCloseBtn {
+    position: absolute;
+    top: 23px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        background: #000;
+        height: 2px;
+        transform-origin: center;
+        border-radius: 2px;
+    }
+
+    &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+}
+
+
+.closingCenter {
+    animation: modalOutCenter 0.125s forwards;
+}
+
+@keyframes modalOutCenter {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+.modalContentRight {
+    position: fixed;
+    top: 0;
+    right: 0;
+    opacity: 1;
+    height: 100%;
+    max-height: none;
+    border-radius: 0;
+    padding: 15px;
+    border-radius: 15px 0 0 15px;
+
+    transform: translateX(100%);
+    animation: modalInRight 0.3s ease-out forwards;
+
+    .modalCloseBtn {
+        top: 15px;
+        right: 15px;
+    }
+}
+
+@keyframes modalInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.closingRight {
+    animation: modalOutRight 0.3s ease-out forwards;
+}
+
+@keyframes modalOutRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
