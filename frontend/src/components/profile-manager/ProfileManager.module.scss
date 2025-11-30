@@ -1,0 +1,46 @@
+.manager {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 450px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  gap: 15px;
+  align-items: baseline;
+
+  h1 {
+    margin-bottom: 0;
+  }
+}
+
+.editButton {
+  svg {
+    stroke: var(--primary);
+  }
+}
+
+.actions {
+  margin-top: 12px;
+}
+
+.logoutBtn {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.editActions {
+  margin-top: 12px;
+}
+
+.deleteBtn {
+  background: var(--danger);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}

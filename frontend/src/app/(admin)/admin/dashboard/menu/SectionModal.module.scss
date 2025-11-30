@@ -1,0 +1,127 @@
+.sectionFields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    grid-column: 1 / -1;
+}
+
+.optionsTitle {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+.option {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    height: 35px;
+    border: 1px solid var(--gray);
+    padding: 0 6px;
+    border-radius: 10px;
+    background: var(--bg, transparent);
+    width: auto;
+    box-sizing: content-box;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    &:not(.optionError):focus-within {
+        border: 1.5px solid var(--primary);
+        box-shadow: 0 0 4px 0 #fe782b;
+    }
+}
+
+.optionError {
+    border-color: var(--danger);
+    &:focus-within {
+        border: 1.5px solid var(--danger);
+        box-shadow: 0 0 4px 0 var(--danger);
+    }
+}
+
+.option input {
+    all: unset !important;
+    outline: none;
+    height: 100%;
+    width: auto;
+    min-width: 5ch;
+    font: inherit;
+    transition: min-width 120ms ease, width 120ms ease;
+}
+
+.optionAdd {
+    color: var(--primary);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.addonWrapper {
+    overflow-y: scroll;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.addonSelector {
+    max-width: 500px;
+}
+
+.addonItem {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--light-gray);
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 500;
+    gap: 5px;
+
+    & > div {
+        align-items: center;
+        display: flex;
+        gap: 5px;
+    }
+
+    & .addonInfo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+.addonItemSelected {
+    border: 1px solid var(--primary);
+}
+
+.selected {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.priceInput {
+    max-width: 100px;
+    input {
+        all: unset !important;
+        outline: none;
+        height: 100%;
+        font: inherit;
+        transition: min-width 120ms ease, width 120ms ease;
+    }
+}

@@ -1,0 +1,113 @@
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  input {
+    background-color: #fff;
+    border-color: var(--light-gray)
+  }
+}
+
+.input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--light-gray);
+}
+
+.addresses {
+  display: grid;
+  gap: 15px;
+}
+
+.addressRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  & > div {
+    width: 100%;
+  }
+
+  input {
+    background-color: #fff;
+    border-color: var(--light-gray)
+  }
+}
+
+.addAddressHeader {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addAddress {
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.saveBtn {
+  background: var(--primary);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.cancelBtn {
+  background: transparent;
+  border: 1px solid var(--light-gray);
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 14px;
+}
+
+.maskedInput {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+
+  &::placeholder {
+    color: #999;
+    opacity: 1;
+  }
+}
+
+.actions {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  gap: 15px;
+
+  button {
+    flex-grow: 1;
+  }
+}
+
+.deleteBtn {
+  margin-top: 15px;
+}

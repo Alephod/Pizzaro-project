@@ -1,0 +1,38 @@
+.form {
+    width: min(650px, 100vw - 70px);
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.title {
+    margin-bottom: 0;
+}
+
+.field > div {
+    position: relative;
+}
+
+.fieldIcon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 6;
+    stroke: var(--gray);
+    transition: stroke 0.15ms;
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            stroke: #4d4d4d;
+        }
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}

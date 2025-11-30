@@ -1,0 +1,113 @@
+.item {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    padding: 10px 0;
+}
+
+.header {
+    display: flex;
+    gap: 8px;
+        align-items: baseline;
+
+    span {
+        font-weight: 300;
+        font-size: 14px;
+    }
+}
+
+.itemInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.itemName {
+    font-weight: 600;
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+
+.itemImage {
+    width: 115px;
+    height: 115px;
+    position: relative;
+
+    img {
+        width: 100%;
+    }
+}
+
+.description {
+    margin-top: 6px;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.ingredient {
+    transition: all 0.2s ease;
+}
+
+.removedIngredient {
+    text-decoration: line-through;
+    color: var(--danger);
+    opacity: 0.7;
+}
+
+.addons {
+    font-size: 15px;
+    margin-top: 4px;
+    font-weight: 300;
+    margin-bottom: 6px;
+}
+
+.itemInfo {
+    margin-left: 10px;
+    flex: 1;
+}
+
+.removeBtn {
+    margin-left: auto;
+    align-self: anchor-center;
+    svg {
+        transition: stroke 0.15s;
+    }
+
+    &:hover {
+        svg {
+            stroke: var(--danger);
+        }
+    }
+}
+
+.itemControls {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 10px;
+}
+
+.countBtn {
+    &[disabled] {
+        opacity: 0.4;
+        cursor: default;
+    }
+}
+
+
+.changeBtn {
+    color: var(--primary);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.footer {
+    margin-top: auto;
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
