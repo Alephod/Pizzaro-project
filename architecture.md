@@ -68,15 +68,16 @@ frontend/
 │   │   │   └── upload/route.ts  
 │   │   └── globals.scss  
 │   ├── components/  
-│   │   ├── admin-product-card/  
-│   │   │   ├── AdminProductCard.module.scss  
-│   │   │   └── AdminProductCard.tsx  
+│   │   ├── profile-manager/  
+│   │   │   ├── ProfileManager.module.scss  
+│   │   │   ├── ProfileManager.tsx  
+│   │   │   ├── ProfileEdit.module.scss  
+│   │   │   ├── ProfileEdit.tsx  
+│   │   │   ├── ProfileView.module.scss  
+│   │   │   └── ProfileView.tsx  
 │   │   ├── cart/  
 │   │   │   ├── Cart.module.scss  
 │   │   │   └── Cart.tsx  
-│   │   ├── cart-item/  
-│   │   │   ├── CartItem.module.scss  
-│   │   │   └── CartItem.tsx  
 │   │   ├── configure-product-modal/  
 │   │   │   ├── ConfigureProductModal.module.scss  
 │   │   │   └── ConfigureProductModal.tsx  
@@ -86,26 +87,17 @@ frontend/
 │   │   ├── login-modal/  
 │   │   │   ├── LoginModal.module.scss  
 │   │   │   └── LoginModal.tsx  
-│   │   ├── info-modal/  
-│   │   │   ├── InfoModal.module.scss  
-│   │   │   └── InfoModal.tsx  
-│   │   ├── modal/  
-│   │   │   ├── Modal.module.scss  
-│   │   │   └── Modal.tsx  
-│   │   ├── product-card/  
-│   │   │   ├── ProductCard.module.scss  
-│   │   │   └── ProductCard.tsx  
 │   │   ├── user-auth/  
 │   │   │   ├── UserLoginForm.module.scss  
 │   │   │   ├── UserLoginForm.tsx  
 │   │   │   ├── RegisterForm.module.scss  
 │   │   │   └── RegisterForm.tsx  
-│   │   ├── checkout/  
-│   │   │   ├── Checkout.module.scss  
-│   │   │   └── Checkout.tsx  
-│   │   └── order-status/  
-│   │       ├── OrderStatus.module.scss  
-│   │       └── OrderStatus.tsx  
+│   │   ├── time-slots/  
+│   │   │   ├── TimeSlots.module.scss  
+│   │   │   └── TimeSlots.tsx  
+│   │   └── checkout/  
+│   │       ├── Checkout.module.scss  
+│   │       └── Checkout.tsx  
 │   ├── lib/
 │   │   ├── authOptions.ts  
 │   │   ├── fetchMenu.ts  
@@ -124,7 +116,29 @@ frontend/
 
 ### ui-library - библиотека общих UI-компонентов
 ui-library/  
-├── src/  
+├── src/
+
+│   ├── order-card/  
+│   │   ├── OrderCard.module.scss  
+│   │   └── OrderCard.tsx  
+│   ├── product-card/  
+│   │   ├── ProductCard.module.scss  
+│   │   └── ProductCard.tsx  
+│   ├── admin-product-card/  
+│   │   ├── AdminProductCard.module.scss  
+│   │   └── AdminProductCard.tsx  
+│   ├── modal/  
+│   │   ├── Modal.module.scss  
+│   │   └── Modal.tsx 
+│   ├── info-modal/  
+│   │   ├── InfoModal.module.scss  
+│   │   └── InfoModal.tsx  
+│   ├── confirm-modal/  
+│   │   ├── ConfirmModal.module.scss  
+│   │   └── ConfirmModal.tsx  
+│   ├── cart-item/  
+│   │   ├── CartItem.module.scss  
+│   │   └── CartItem.tsx  
 │   ├── Button/  
 │   │   ├── Button.module.scss  
 │   │   └── Button.tsx  
@@ -133,10 +147,16 @@ ui-library/
 │   │   └── Checkbox.tsx  
 │   ├── Input/  
 │   │   ├── Input.module.scss  
-│   │   └── Input.tsx  
+│   │   └── Input.tsx 
+│   ├── Select/  
+│   │   ├── Select.module.scss  
+│   │   └── Select.tsx
 │   ├── PhotoUpload/  
 │   │   ├── PhotoUpload.module.scss  
 │   │   └── PhotoUpload.tsx  
+│   ├── Radio/  
+│   │   ├── Radio.module.scss  
+│   │   └── Radio.tsx   
 │   ├── RadioButton/  
 │   │   ├── RadioButton.module.scss  
 │   │   └── RadioButton.tsx  
