@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "WATCHPACK_POLLING=true next dev -H 0.0.0.0",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -12,10 +12,11 @@
     "lint:fix": "eslint . --fix",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "prisma:seed": "node prisma/seed.js"
   },
   "dependencies": {
-    "@my-app/ui-library": "file:../ui-library",
+    "@my-app/ui-library": "file:../ui-library/dist",
     "@prisma/client": "^6.17.1",
     "bcrypt": "^6.0.0",
     "clsx": "^2.1.1",

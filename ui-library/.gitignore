@@ -24,4 +24,5 @@ dist-ssr
 *.sw?
 tsconfig.lib.tsbuildinfo
 
-coverage/
+# testing
+/coverage

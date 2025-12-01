@@ -4,8 +4,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = "postgresql://admin:nimda@db:5432/pizzaro?schema=public"
+  provider = "sqlite"  
+  url      = "file:./../lite.db"  
 }
 
 model AdminUser {
