@@ -2,9 +2,14 @@ import { NextResponse } from 'next/server'
 
 import { prisma } from '@/lib/prisma'
 
-export async function GET(_req: Request, { params }: { params: { id: string } }) {
+type RouteParams = {
+  params: Promise<{ id: string }>
+}
+
+export async function GET(_req: Request, { params }: RouteParams) {
   try {
-    const id = parseInt(params.id, 10)
+    const { id: rawId } = await params
+    const id = parseInt(rawId, 10)
 
     if (Number.isNaN(id)) return NextResponse.json({ error: 'Invalid id' }, { status: 400 })
 
@@ -25,9 +30,10 @@ export async function GET(_req: Request, { params }: { params: { id: string } })
   }
 }
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
+export async function PUT(req: Request, { params }: RouteParams) {
   try {
-    const id = parseInt(params.id, 10)
+    const { id: rawId } = await params
+    const id = parseInt(rawId, 10)
 
     if (Number.isNaN(id)) return NextResponse.json({ error: 'Invalid id' }, { status: 400 })
 
@@ -53,9 +59,10 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
   }
 }
 
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
+export async function DELETE(req: Request, { params }: RouteParams) {
   try {
-    const id = parseInt(params.id, 10)
+    const { id: rawId } = await params
+    const id = parseInt(rawId, 10)
 
     if (Number.isNaN(id)) return NextResponse.json({ error: 'Invalid id' }, { status: 400 })
 

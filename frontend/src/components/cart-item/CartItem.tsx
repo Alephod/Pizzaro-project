@@ -105,18 +105,18 @@ export function CartItem({ item, onDecrease, onIncrease, onRemove }: CartItemPro
 
         <div className={styles.footer}>
           <button className={styles.changeBtn} onClick={handleEdit}>
-                        Изменить состав
+            Изменить состав
           </button>
 
           <div className={styles.itemControls}>
             <button onClick={onDecrease} aria-label="Уменьшить количество" disabled={item.count <= 1} className={styles.countBtn}>
-                            −
+              −
             </button>
 
             <span className={styles.count}>{item.count}</span>
 
             <button onClick={onIncrease} aria-label="Увеличить количество" disabled={isMaxCount} className={styles.countBtn}>
-                            +
+              +
             </button>
           </div>
 

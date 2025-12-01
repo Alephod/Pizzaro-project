@@ -3,8 +3,13 @@ import { NextResponse } from 'next/server'
 import { moveTempToUploads } from '@/lib/moveTempToUploads'
 import { prisma } from '@/lib/prisma'
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
-  const id = parseInt(params.id, 10)
+type RouteParams = {
+  params: Promise<{ id: string }>
+}
+
+export async function GET(req: Request, { params }: RouteParams) {
+  const { id: rawId } = await params
+  const id = parseInt(rawId, 10)
   const item = await prisma.product.findUnique({ where: { id } })
 
   if (!item) return NextResponse.json({ error: 'Not found' }, { status: 404 })
@@ -12,8 +17,9 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
   return NextResponse.json(item)
 }
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
-  const id = parseInt(params.id, 10)
+export async function PUT(req: Request, { params }: RouteParams) {
+  const { id: rawId } = await params
+  const id = parseInt(rawId, 10)
   const body = await req.json()
 
   const finalImageUrl = body.imageUrl ? await moveTempToUploads(body.imageUrl) : body.imageUrl
@@ -32,8 +38,9 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
   return NextResponse.json(updated)
 }
 
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
-  const id = parseInt(params.id, 10)
+export async function DELETE(req: Request, { params }: RouteParams) {
+  const { id: rawId } = await params
+  const id = parseInt(rawId, 10)
 
   await prisma.product.delete({ where: { id } })
 

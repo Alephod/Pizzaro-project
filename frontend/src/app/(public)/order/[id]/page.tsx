@@ -5,27 +5,31 @@ import OrderDetails from './OrderDetails'
 
 import type { Metadata } from 'next'
 
-interface OrderPageParams {
-  params: { id: string };
+// Правильные типы для Next.js 15+
+type OrderPageParams = {
+  params: Promise<{ id: string }>
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
-export async function generateMetadata({ params }: OrderPageParams): Promise<Metadata> {
+// generateMetadata тоже должен быть async и принимать Promise-параметры
+export async function generateMetadata({
+  params,
+}: OrderPageParams): Promise<Metadata> {
+  const { id } = await params
+
   const order = await prisma.order.findUnique({
-    where: { id: params.id },
+    where: { id },
     select: { id: true },
   })
 
   if (!order) {
-    return {
-      title: 'Заказ не найден — Pizzaro',
-    }
+    return { title: 'Заказ не найден — Pizzaro' }
   }
 
-  return {
-    title: `Заказ №${order.id} — Pizzaro`,
-  }
+  return { title: `Заказ №${order.id} — Pizzaro` }
 }
 
+// Функция нормализации items (оставляем как есть — она нормальная)
 function normalizeItems(value: unknown): OrderItem[] {
   if (!Array.isArray(value)) return []
 
@@ -37,23 +41,33 @@ function normalizeItems(value: unknown): OrderItem[] {
       const cost = typeof raw.cost === 'number' ? raw.cost : Number(raw.cost) || 0
       const variant = typeof raw.variant === 'string' ? raw.variant : undefined
       const removedIngredients =
-        Array.isArray(raw.removedIngredients) && raw.removedIngredients.every((x) => typeof x === 'string')
+        Array.isArray(raw.removedIngredients) &&
+          raw.removedIngredients.every((x) => typeof x === 'string')
           ? raw.removedIngredients
           : undefined
       const addons =
-        Array.isArray(raw.addons) && raw.addons.every((x) => typeof x === 'string') ? raw.addons : undefined
+        Array.isArray(raw.addons) && raw.addons.every((x) => typeof x === 'string')
+          ? raw.addons
+          : undefined
 
       return { name, count, cost, variant, removedIngredients, addons }
     })
 }
 
+// Сама страница — обязательно async!
 export default async function OrderPage({ params }: OrderPageParams) {
+  const { id } = await params // ← вот и всё, что нужно было добавить!
+
   const initialOrderFromDb = await prisma.order.findUnique({
-    where: { id: params.id },
+    where: { id },
   })
 
   if (!initialOrderFromDb) {
-    return <div className='container' style={{'marginTop': '40px'}}><h1>Заказ не найден</h1></div>
+    return (
+      <div className="container" style={{ marginTop: '40px' }}>
+        <h1>Заказ не найден</h1>
+      </div>
+    )
   }
 
   const items = normalizeItems(initialOrderFromDb.items)

@@ -42,7 +42,6 @@ export default function CheckoutClient({ initialProfile }: CheckoutClientProps) 
   const [addressError, setAddressError] = useState(false)
   const [isPlacingOrder, setIsPlacingOrder] = useState(false)
 
-  // Показывать ошибки только после попытки отправки формы
   const [submitAttempted, setSubmitAttempted] = useState(false)
 
   useEffect(() => {
@@ -55,7 +54,6 @@ export default function CheckoutClient({ initialProfile }: CheckoutClientProps) 
   const onlyDigits = (str: string) => str.replace(/\D/g, '')
   const isValidPhone = (value: string) => {
     const digits = onlyDigits(value)
-    // нормализуем: если пользователь ввёл с 8 — заменяем на 7 (российский формат)
     const normalized = digits.startsWith('8') ? '7' + digits.slice(1) : digits
 
     return normalized.length === 11 && normalized.startsWith('7')
@@ -79,7 +77,6 @@ export default function CheckoutClient({ initialProfile }: CheckoutClientProps) 
 
     if (!customerName.trim()) { setNameError(true); valid = false } else setNameError(false)
 
-    // phone: обязательно и должен соответствовать логике из профиля
     if (!phone.trim()) {
       setPhoneError(true)
       setPhoneErrorMessage('Обязательное поле')
@@ -101,7 +98,6 @@ export default function CheckoutClient({ initialProfile }: CheckoutClientProps) 
   }
 
   const handlePlaceOrder = async () => {
-    // показываем ошибки только после первой попытки сабмита
     setSubmitAttempted(true)
 
     if (!validateForm() || isPlacingOrder) return
@@ -143,7 +139,6 @@ export default function CheckoutClient({ initialProfile }: CheckoutClientProps) 
 
       const { id } = await response.json()
 
-      // Сохраняем новые адреса в профиль (если были)
       if (newlyAddedAddresses.length > 0 && profile?.id) {
         await fetch(`/api/user/${profile.id}`, {
           method: 'PATCH',
@@ -188,8 +183,6 @@ export default function CheckoutClient({ initialProfile }: CheckoutClientProps) 
             onChange={e => {
               const value = e.target.value
 
-              // разрешаем только: необязательный ведущий '+', цифры и дефисы
-              // это блокирует ввод нескольких '+' (например "+78++...")
               if (/^\+?[0-9-]*$/.test(value)) {
                 setPhone(value)
                 if (submitAttempted) setPhoneError(false)
@@ -222,11 +215,11 @@ export default function CheckoutClient({ initialProfile }: CheckoutClientProps) 
           <label>Время доставки</label>
           <div className={styles.timeButtons} suppressHydrationWarning>
             <Button size="md" variant={deliveryTime === 'asap' ? 'primary' : 'secondary'} onClick={() => setDeliveryTime('asap')}>
-                            Побыстрее
+              Побыстрее
             </Button>
             <TimeSlots selected={deliveryTime} onSelect={setDeliveryTime} />
             <Button size="md" variant={deliveryTime === 'other' ? 'primary' : 'secondary'} onClick={() => setDeliveryTime('other')}>
-                            Другое время
+              Другое время
             </Button>
           </div>
           {deliveryTime === 'other' && (
@@ -264,9 +257,9 @@ export default function CheckoutClient({ initialProfile }: CheckoutClientProps) 
                       {item.name} {item.variant && `· ${item.variant}`}
                     </span>
                     <span className={styles.itemQuantity}>× {item.count}</span>
-                  </div>
-                  <div className={styles.itemPrice}>
-                    {normalizePrice(item.cost * item.count)}
+                    <div className={styles.itemPrice}>
+                      {normalizePrice(item.cost * item.count)}
+                    </div>
                   </div>
 
                   {item.removedIngredients?.length > 0 && (

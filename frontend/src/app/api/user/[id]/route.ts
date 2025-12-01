@@ -5,6 +5,10 @@ import type { OrderData } from '@/types/order'
 
 import type { NextRequest } from 'next/server'
 
+type RouteParams = {
+  params: Promise<{ id: string }>
+}
+
 type UserProfileResponse = {
     id: number;
     email: string;
@@ -40,8 +44,9 @@ function ensureAddresses(value: unknown): string[] | null {
   return ok ? (value as string[]) : null
 }
 
-export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
-  const id = Number(params.id)
+export async function GET(_req: NextRequest, { params }: RouteParams) {
+  const { id: rawId } = await params
+  const id = parseInt(rawId, 10)
 
   if (!Number.isInteger(id) || id <= 0) {
     return NextResponse.json({ error: 'Invalid id' }, { status: 400 })
@@ -70,8 +75,9 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   return NextResponse.json(response)
 }
 
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
-  const id = Number(params.id)
+export async function PATCH(req: NextRequest, { params }: RouteParams) {
+  const { id: rawId } = await params
+  const id = parseInt(rawId, 10)
 
   if (!Number.isInteger(id) || id <= 0) {
     return NextResponse.json({ error: 'Invalid id' }, { status: 400 })
@@ -168,8 +174,9 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   }
 }
 
-export async function DELETE(_req: NextRequest, { params }: { params: { id: string } }) {
-  const id = Number(params.id)
+export async function DELETE(_req: NextRequest, { params }: RouteParams) {
+  const { id: rawId } = await params
+  const id = parseInt(rawId, 10)
 
   if (!Number.isInteger(id) || id <= 0) {
     return NextResponse.json({ error: 'Invalid id' }, { status: 400 })

@@ -1,5 +1,4 @@
-// OrderCardAdmin.module.scss
-
+@use "sass:color";
 .card {
   position: relative;
   border: 1px solid #ddd;
@@ -58,7 +57,7 @@
 .statusGroup {
   display: flex;
   gap: 8px;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .status {
@@ -123,21 +122,21 @@
 }
 
 .buttonAccepted {
-  background-color: lighten(#57c45b, 30%) !important;
+  background-color: color.adjust(#57c45b, $lightness: 30%) !important;
   color: var(--green) !important;
 }
 
 .buttonPreparing {
-  background-color: lighten(#AA6A4E, 30%) !important;
+  background-color: color.adjust(#AA6A4E, $lightness: 30%) !important;
   color: var(--brown) !important;
 }
 
 .buttonDelivering {
-  background-color: lighten(#fe782b, 30%) !important;
+  background-color: color.adjust(#fe782b, $lightness: 30%) !important;
   color: var(--primary) !important;
 }
 
 .buttonDelivered {
-  background-color: lighten(#969696, 30%) !important;
+  background-color: color.adjust(#969696, $lightness: 30%) !important;
   color: #969696 !important;
 }
