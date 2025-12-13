@@ -49,13 +49,24 @@ frontend/
 │   │   │   ├── checkout/ — Страница оформления заказа
 │   │   │   │   ├── page.module.scss  
 │   │   │   │   └── page.tsx  
+│   │   │   ├── order/[id]/ — Страница просмотра статуса заказа
+│   │   │   │   ├── OrderDetails.module.scss  
+│   │   │   │   ├── OrderDetails.tsx  
+│   │   │   │   └── page.tsx  
+│   │   │   ├── profile/ — Страница профиля
+│   │   │   │   ├── page.module.scss  
+│   │   │   │   └── page.tsx  
 │   │   │   ├── Home.module.scss  
 │   │   │   ├── favicon.ico  
 │   │   │   ├── layout.tsx  
+│   │   │   ├── MenuClient.tsx 
 │   │   │   └── page.tsx  
 │   │   ├── api/ — API-роуты Next.js для бэкенда 
-│   │   │   ├── auth/[...nextauth]/route.ts  
+│   │   │   ├── auth-admin/[...nextauth]/route.ts  
+│   │   │   ├── auth-client/[...nextauth]/route.ts 
 │   │   │   ├── cleanup-temp/route.ts  
+│   │   │   ├── send-otp/route.ts
+│   │   │   ├── user/[id]/route.ts
 │   │   │   ├── menu-product/  
 │   │   │   │   ├── [id]/route.ts  
 │   │   │   │   └── route.ts  
@@ -84,20 +95,14 @@ frontend/
 │   │   ├── header/  
 │   │   │   ├── Header.module.scss  
 │   │   │   └── Header.tsx  
-│   │   ├── login-modal/  
-│   │   │   ├── LoginModal.module.scss  
-│   │   │   └── LoginModal.tsx  
-│   │   ├── user-auth/  
-│   │   │   ├── UserLoginForm.module.scss  
-│   │   │   ├── UserLoginForm.tsx  
-│   │   │   ├── RegisterForm.module.scss  
-│   │   │   └── RegisterForm.tsx  
-│   │   ├── time-slots/  
-│   │   │   ├── TimeSlots.module.scss  
-│   │   │   └── TimeSlots.tsx  
-│   │   └── checkout/  
-│   │       ├── Checkout.module.scss  
-│   │       └── Checkout.tsx  
+│   │   ├── auth-modal/  
+│   │   │   ├── EmailModal.module.scss  
+│   │   │   ├── EmailModal.tsx  
+│   │   │   ├── AuthModal.module.scss  
+│   │   │   └── AuthModal.tsx  
+│   │   └── order-card/  
+│   │       ├── OrderCard.module.scss  
+│   │       └── OrderCard.tsx  
 │   ├── lib/
 │   │   ├── authOptions.ts  
 │   │   ├── fetchMenu.ts  
@@ -110,6 +115,8 @@ frontend/
 │   ├── types/ — Типы TypeScript  
 │   │   ├── cart.ts  
 │   │   ├── menu.ts  
+│   │   ├── order.ts  
+│   │   ├── profile.ts 
 │   │   └── next-auth.d.ts  
 │   └── utils.ts  
 └── tsconfig.json  
@@ -117,13 +124,12 @@ frontend/
 ### ui-library - библиотека общих UI-компонентов
 ui-library/  
 ├── src/
-
-│   ├── order-card/  
-│   │   ├── OrderCard.module.scss  
-│   │   └── OrderCard.tsx  
 │   ├── product-card/  
 │   │   ├── ProductCard.module.scss  
 │   │   └── ProductCard.tsx  
+│   ├── order-card/  
+│   │   ├── OrderCardAdmin.module.scss  
+│   │   └── OrderCardAdmin.tsx  
 │   ├── admin-product-card/  
 │   │   ├── AdminProductCard.module.scss  
 │   │   └── AdminProductCard.tsx  
@@ -163,6 +169,9 @@ ui-library/
 │   ├── Textarea/  
 │   │   ├── Textarea.module.scss  
 │   │   └── Textarea.tsx  
+│   ├── time-slots/  
+│   │   ├── TimeSlots.module.scss  
+│   │   └── TimeSlots.tsx  
 │   └── index.ts  
 ├── package.json  
 ├── .gitignore  
