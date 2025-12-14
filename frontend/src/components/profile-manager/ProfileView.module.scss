@@ -1,0 +1,33 @@
+.view {
+  display: grid;
+  gap: 12px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--light-gray);
+}
+
+.field {
+  input {
+    background-color: #fff;
+    border-color: var(--light-gray)
+  }
+}
+
+.addressList {
+  display: grid;
+  gap: 15px;
+}
+.noAddressSpan {
+  color: var(--gray);
+  font-weight: 300;
+}
+
+.actions {
+  margin-top: 15px;
+}
