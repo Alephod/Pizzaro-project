@@ -1,0 +1,36 @@
+.textarea {
+    width: 100%;
+    padding: 15px 15px;
+    font-size: 18px;
+    border: 1px solid var(--gray);
+    border-radius: var(--border-radius);
+    background: transparent;
+    color: var(--colorText);
+    resize: none;
+    line-height: 1.2;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+        border: 1.5px solid var(--primary);
+        box-shadow: 0 0 4px 0 #fe782b;
+    }
+}
+
+.disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.error {
+    border-color: var(--danger);
+
+    &:focus {
+        border: 1.5px solid var(--danger);
+        box-shadow: 0 0 4px var(--danger);
+    }
+}
+.errorMessage {
+    font-size: 14px;
+    color: var(--danger);
+    margin-top: 5px;
+}

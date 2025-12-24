@@ -1,0 +1,53 @@
+.sectionFields {
+    display: grid;
+    grid-template-columns: 1fr 225px;
+    grid-template-rows: auto 1fr;
+    gap: 15px;
+}
+
+.photo {
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+    aspect-ratio: 1 / 1;
+
+    & > div {
+        height: 100%;
+    }
+}
+
+.textarea {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    & > div {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        & > textarea {
+            flex-grow: 1;
+        }
+    }
+}
+
+.variantInputs {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.preview {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.viewVariant {
+    margin-bottom: 10px;
+
+    h4 {
+        margin: 0 0 5px;
+    }
+
+    p {
+        margin: 0 0 5px;
+    }
+}

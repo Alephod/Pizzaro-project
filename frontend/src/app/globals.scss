@@ -1,0 +1,155 @@
+:root {
+    --background: #fafafa;
+    --hoverBackground: #fafafa;
+    --primary: #fe782b;
+    --danger: #ff4747;
+    --green: #57c45b;
+    --brown: #AA6A4E;
+    --gray: #b1b1b1;
+    --light-gray: #e5e5e5;
+    --colorText: #171717;
+    --placeholder-color: #999;
+
+    --border-radius: 15px;
+}
+
+html,
+body {
+    max-width: 100vw;
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--colorText);
+    background: var(--background);
+    font-family: var(--font-open-sans), Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h4,
+h5,
+h6 {
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+h4,
+h5 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+h6 {
+    font-size: 18px;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    line-height: 1;
+    min-height: 100vh;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* Scrollbar */
+
+*,
+*::before,
+*::after {
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgba(254, 120, 43, 0.3);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;
+    transition: all 0.25s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--gray);
+    background-clip: padding-box;
+    box-shadow: 0 0 0 2px rgba(254, 120, 43, 0.15);
+}
+
+*::-webkit-scrollbar-corner {
+    background: transparent;
+}

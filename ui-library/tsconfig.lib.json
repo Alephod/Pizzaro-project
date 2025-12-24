@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json", // Если есть базовый tsconfig, extend от него
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true, // Только .d.ts файлы, без .js
+    "outDir": "dist"
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "dist", "tests"]
+}

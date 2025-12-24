@@ -1,0 +1,22 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+}
+
+.form {
+    max-width: 380px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.errorMassage {
+    color: var(--danger);
+    font-weight: 500;
+    text-align: center;
+}
